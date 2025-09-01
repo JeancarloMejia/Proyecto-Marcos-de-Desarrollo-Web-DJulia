@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo | D'JULIA</title>
+    <link rel="stylesheet" href="CSS/catalogo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-section">
+            <img src="../Loggin/logo.png" alt="D'JULIA" class="logo" id="sidebarToggle">
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><i class="fa fa-list"></i> CATÁLOGO</li>
+                <li><i class="fa fa-box"></i> TODOS LOS PRODUCTOS</li>
+                <li><i class="fa fa-image"></i> BANNER</li>
+                <li><i class="fa fa-bullhorn"></i> ANUNCIO</li>
+            </ul>
+        </nav>
+        <div class="categories-title">
+            <span>Categories</span>
+            <i class="fa fa-chevron-down"></i>
+        </div>
+    </div>
+    <div class="main-content">
+        <header>
+            <div class="breadcrumb">
+                <span>Catálogo</span>
+                <span class="divider">&gt;</span>
+                <span class="current">Home &gt; Catálogo</span>
+            </div>
+            <div class="header-actions">
+                <span class="material-icons search-icon" id="searchIcon">search</span>
+                <span class="material-icons bell-icon" id="notifIcon">notifications</span>
+                <div class="admin-menu-container">
+                    <button class="admin-btn" id="adminMenuBtn">
+                        ADMIN <span class="material-icons"
+                            style="font-size:18px;vertical-align:middle;">expand_more</span>
+                    </button>
+                    <div class="admin-dropdown" id="adminDropdown">
+                        <div class="admin-dropdown-header">Admin</div>
+                        <button class="admin-dropdown-item cambiar" type="button">CAMBIAR CONTRASEÑA</button>
+                        <button class="admin-dropdown-item cerrar" type="button">CERRAR SESIÓN <span
+                                class="material-icons">logout</span></button>
+                    </div>
+                </div>
+                <!-- Caja de búsqueda -->
+                <div class="search-box" id="searchBox" style="display:none;">
+                    <input type="text" id="searchInput" placeholder="Buscar producto...">
+                </div>
+                <!-- Panel de notificaciones -->
+                <div class="notif-panel" id="notifPanel" style="display:none;">
+                    <p>No tienes notificaciones nuevas.</p>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <div class="categories-panel">
+                <div class="categories-header">Categorías</div>
+                <ul class="categories-list">
+                    <li>
+                        <button class="cat-color-btn" data-category="PANES">
+                            <img class="cat-color" src="../imagenes/Panes.webp" alt="PANES">
+                        </button>
+                        <span class="cat-label">PANES (<span class="cat-count" data-category="PANES">3</span>)</span>
+                        <span class="cat-actions">
+                            <i class="fa fa-pen" title="Editar" onclick="editarCategoria('PANES')"></i>
+                            <i class="fa fa-trash" title="Eliminar" onclick="eliminarCategoria('PANES')"></i>
+                        </span>
+                    </li>
+                    <li>
+                        <button class="cat-color-btn" data-category="POSTRES">
+                            <img class="cat-color" src="../imagenes/Postres.webp" alt="POSTRES">
+                        </button>
+                        <span class="cat-label">POSTRES (<span class="cat-count"
+                                data-category="POSTRES">4</span>)</span>
+                        <span class="cat-actions">
+                            <i class="fa fa-pen" title="Editar" onclick="editarCategoria('POSTRES')"></i>
+                            <i class="fa fa-trash" title="Eliminar" onclick="eliminarCategoria('POSTRES')"></i>
+                        </span>
+                    </li>
+                    <li>
+                        <button class="cat-color-btn" data-category="CUCHAREABLES">
+                            <img class="cat-color" src="../imagenes/Cuchareable.webp" alt="CUCHAREABLES">
+                        </button>
+                        <span class="cat-label">CUCHAREABLES (<span class="cat-count"
+                                data-category="CUCHAREABLES">5</span>)</span>
+                        <span class="cat-actions">
+                            <i class="fa fa-pen" title="Editar" onclick="editarCategoria('CUCHAREABLES')"></i>
+                            <i class="fa fa-trash" title="Eliminar" onclick="eliminarCategoria('CUCHAREABLES')"></i>
+                        </span>
+                    </li>
+                    <li>
+                        <button class="cat-color-btn" data-category="TORTAS">
+                            <img class="cat-color" src="../imagenes/Tortas.webp" alt="TORTAS">
+                        </button>
+                        <span class="cat-label">TORTAS (<span class="cat-count" data-category="TORTAS">4</span>)</span>
+                        <span class="cat-actions">
+                            <i class="fa fa-pen" title="Editar" onclick="editarCategoria('TORTAS')"></i>
+                            <i class="fa fa-trash" title="Eliminar" onclick="eliminarCategoria('TORTAS')"></i>
+                        </span>
+                    </li>
+                </ul>
+                <div class="add-category">
+                    <button class="add-btn">AÑADIR</button>
+                    <button class="new-cat-btn">Nueva Categoría</button>
+                </div>
+            </div>
+            <div class="products-panel" id="productsPanel">
+                <div class="product-card" data-category="PANES">
+                    <img src="../imagenes/Panes.webp" alt="Hogaza de Tanta Zara">
+                    <div class="product-title">Hogaza de Tanta Zara</div>
+                </div>
+                <div class="product-card" data-category="PANES">
+                    <img src="../imagenes/Pan Zata.webp" alt="Hogaza de granos andinos">
+                    <div class="product-title">Hogaza de granos andinos</div>
+                </div>
+                <div class="product-card" data-category="PANES">
+                    <img src="../imagenes/MiniZara.webp" alt="Mini artesanal Tanta Zara">
+                    <div class="product-title">Mini artesanal Tanta Zara</div>
+                </div>
+                <div class="product-card" data-category="POSTRES">
+                    <img src="../imagenes/Postres.webp" alt="Profiterol de Pistacho">
+                    <div class="product-title">Profiterol de Pistacho</div>
+                </div>
+                <div class="product-card" data-category="POSTRES">
+                    <img src="../imagenes/Mini Mil hojas.webp" alt="Mini Milhojas de Profiteroles">
+                    <div class="product-title">Mini Milhojas de Profiteroles</div>
+                </div>
+                <div class="product-card" data-category="POSTRES">
+                    <img src="../imagenes/Ecler de chocolate.webp" alt="Ecler de Chocolate">
+                    <div class="product-title">Ecler de Chocolate</div>
+                </div>
+                <div class="product-card" data-category="POSTRES">
+                    <img src="../imagenes/Mil hojas cremada.webp" alt="Milhojas Cremado (Grande)">
+                    <div class="product-title">Milhojas Cremado (Grande)</div>
+                </div>
+                <div class="product-card" data-category="POSTRES">
+                    <img src="../imagenes/Torta chocolate.webp" alt="Torta de chocolate">
+                    <div class="product-title">Torta de chocolate</div>
+                </div>
+                <div class="product-card" data-category="POSTRES">
+                    <img src="../imagenes/Mini pasion de mil hojas.webp" alt="Mini Pasión de milhojas">
+                    <div class="product-title">Mini Pasión de milhojas</div>
+                </div>
+                <div class="product-card" data-category="CUCHAREABLES">
+                    <img src="../imagenes/Cuchareable.webp" alt="Cuchareable de tiramisú">
+                    <div class="product-title">Cuchareable de tiramisú</div>
+                </div>
+                <div class="product-card" data-category="CUCHAREABLES">
+                    <img src="../imagenes/Huevo carrot cake.webp" alt="Huevo de Alfajor">
+                    <div class="product-title">Huevo de Alfajor</div>
+                </div>
+                <div class="product-card" data-category="CUCHAREABLES">
+                    <img src="../imagenes/huevo de lucuma.webp" alt="Huevo de Lúcuma">
+                    <div class="product-title">Huevo de Lúcuma</div>
+                </div>
+                <div class="product-card" data-category="CUCHAREABLES">
+                    <img src="../imagenes/Huevo carrot cake.webp" alt="Huevo Carrot Cake">
+                    <div class="product-title">Huevo Carrot Cake</div>
+                </div>
+                <div class="product-card" data-category="TORTAS">
+                    <img src="../imagenes/Tortas.webp" alt="Delicia de fresa (chico)">
+                    <div class="product-title">Delicia de fresa (chico)</div>
+                </div>
+                <div class="product-card" data-category="TORTAS">
+                    <img src="../imagenes/torta de pecanas.webp" alt="Torta de pecanas">
+                    <div class="product-title">Torta de pecanas</div>
+                </div>
+                <div class="product-card" data-category="TORTAS">
+                    <img src="../imagenes/bavarios de chocolate.webp" alt="Bavarois de chocolate con lúcuma">
+                    <div class="product-title">Bavarois de chocolate con lúcuma</div>
+                </div>
+                <div class="product-card" data-category="TORTAS">
+                    <img src="../imagenes/Torta de frutas.webp" alt="Torta de yogurt con frutos rojos">
+                    <div class="product-title">Torta de yogurt con frutos rojos</div>
+                </div>
+                <div class="product-card" data-category="TORTAS">
+                    <img src="../imagenes/Tiramisu Dc.webp" alt="Tiramisú DC">
+                    <div class="product-title">Tiramisú DC</div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <span>© 2025 · DJULIA</span>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Policy</a>
+                <a href="#">Contact</a>
+            </div>
+        </footer>
+    </div>
+    <script src="catalogo.js"></script>
+</body>
+</html>

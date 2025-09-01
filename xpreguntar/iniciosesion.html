@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://files.cdn-files-a.com/uploads/10617969/2000_un-67fad1cdb7888.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .caja-login {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 350px;
+            color: white;
+            text-align: center;
+        }
+
+        .caja-login h2 {
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .campo input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .boton {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            background-color: #b0003a;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #7a002a;
+        }
+
+        .cerrar {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .cerrar:hover {
+            color: #b83267;
+        }
+    </style>
+</head>
+
+    <body>
+        <div class="caja-login" id="formulario">
+        <a href="/PF_D_Julia/public/Cliente/prueba.html" class="cerrar"><i class="fas fa-times"></i></a>
+        <h2 id="titulo"><i class="fas fa-user"></i> Iniciar Sesión</h2>
+
+        <!-- Campos adicionales para el registro -->
+        <div class="campo" id="campo-nombre" style="display: none;">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" placeholder="Tu nombre">
+        </div>
+
+        <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" placeholder="correo@ejemplo.com" required>
+        </div>
+
+        <div class="campo">
+            <label for="contrasena">Contraseña</label>
+            <div style="position: relative;">
+                <input type="password" id="contraseña" name="contraseña" required style="padding-right: 40px;" placeholder="••••••••" required>
+                <button type="button" onclick="togglePassword()" style="position: absolute; right: 5px; top: 5px;">👁️</button>
+            </div>
+        </div>
+
+        <div class="campo" id="campo-telefono" style="display: none;">
+            <label for="telefono">Teléfono</label>
+            <input type="text" id="telefono" placeholder="987654321">
+        </div>
+
+        <div class="campo" id="campo-direccion" style="display: none;">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" placeholder="Tu dirección">
+        </div>
+
+        <button class="boton" id="boton-principal">Iniciar Sesión</button>
+        <button class="boton" id="boton-secundario">Crear Cuenta</button>
+
+        <script src="/PF_D_Julia/public/JavaScript/Account.js" defer></script>
+    </body>
+    </html>

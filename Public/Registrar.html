@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>D'JULIA Registro</title>
+    <link rel="stylesheet" href="CSS/loggin.css">
+    <style>
+        input[type="email"] {
+            padding: 13px 15px;
+            font-size: 1.1rem;
+            border: 2px solid #bbb;
+            border-radius: 6px;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        input[type="email"]:focus {
+            border-color: #a8005a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="imagenes/acti.jpg" alt="Pasteles" class="bg-img">
+        </div>
+        <div class="right">
+            <div class="login-box">
+                <img src="imagenes/logo.png" alt="D'JULIA" class="logo">
+                <h2>Registrate</h2>
+
+                <form action="../controller/registro.php" method="POST">
+                    <input type="text" placeholder="Nombre" name="nombre" required>
+                    <input type="email" placeholder="Correo" name="correo" required>
+                    <input type="password" placeholder="Contraseña" name="password" required>
+                    <button type="submit" class="login-btn">
+                        REGISTRAR <span class="arrow">&#8594;</span>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

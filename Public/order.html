@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/pruebacss.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&family=Merriweather:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Orden - D' Julia</title>
+</head>
+
+<body>
+    <header class="navbar" style="box-shadow: 0px 2px 12px 2px rgb(0 0 0 / 35%);">
+        <div class="menu-toggle" onclick="toggleMenu()"><span>☰</span></div>
+        <div><a href="#inicio" class="logo"><span>D' Julia</span></a></div>
+        <div class="items">
+            <nav class="nav-links" id="navLinks">
+                <a href="prueba.html#inicio">Inicio</a>
+                <a href="prueba.html#nosotros">Sobre Nosotros</a>
+                <a href="prueba.html#contacto">Contacto</a>
+                <a href="prueba.html#servicios">Servicios</a>
+                <a href="prueba.html#testimonios">Testimonios</a>
+                <a href="prueba.html#galeria">Galería</a>
+                <a href="prueba.html#locales">Locales</a>
+                <a href="prueba.html#carta">Menú</a>
+            </nav>
+            <div class="iconos">
+                <a href="Iconos/ubicacion.html"><span class="material-symbols-outlined">near_me</span></a><!-- Ubicación -->
+                <a style="cursor: pointer;" onclick="abrirCarrito()" class="icono-carrito">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span id="contadorCarrito" class="contador-carrito">0</span></a><!-- Carrito -->
+                </a><!-- Carrito -->
+                <a href="Iconos/telefono.html"><span class="material-symbols-outlined">phone</span></a><!-- Telefono -->
+                <a href="Iconos/account.html" class="material-symbols-outlined">account_circle</span></a> <!-- Cuenta -->
+            </div>
+        </div>
+    </header>
+
+    <div class="contenedor-principal">
+    <!-- Encabezado -->
+    <div class="encabezado-pedido">
+        <h2>COMPLETA TU PEDIDO</h2>
+    </div>
+
+    <!-- Menú de pasos -->
+    <div class="bloques-pasos">
+        <div class="pasos-menu">
+            <div class="paso-item paso-activo" data-paso="1">
+                <img src="https://images.cdn-files-a.com/ready_uploads/svg/info-circle.svg?v=2" class="icono-svg" alt="Info"> Ingresa tu info
+            </div>
+            <div class="paso-item" data-paso="2">
+                <img src="https://images.cdn-files-a.com/ready_uploads/svg/truck.svg?v=2" class="icono-svg" alt="Info"> Opciones de Delivery
+            </div>
+            <div class="paso-item" data-paso="3">
+                <img src="https://images.cdn-files-a.com/ready_uploads/svg/credit-card.svg?v=2" class="icono-svg" alt="Info"> Métodos de pago
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido dividido en resumen y formulario -->
+    <div class="contenido-pedido">
+        <div class="zona-pasos">
+            <!-- Formulario Paso 1-->
+            <div class="bloque-formulario">
+                <form class="formulario-pedido">
+                    <label>Correo electrónico
+                        <input type="email" required>
+                    </label>
+                    <div class="fila-doble">
+                        <label style="flex: 1">Nombre
+                            <input type="text" required>
+                        </label>
+                        <label style="flex: 1">Apellido
+                            <input type="text" required>
+                        </label>
+                    </div>
+                    <label>País
+                        <select required>
+                            <option value="">Seleccionar...</option>
+                            <option value="PE">Perú</option>
+                            <option value="AR">Argentina</option>
+                            <option value="CO">Colombia</option>
+                            <option value="CL">Chile</option>
+                            <option value="EC">Ecuador</option>
+                        </select>
+                    </label>
+                    <label>Dirección completa
+                        <input type="text" required>
+                    </label>
+                    <div class="fila-doble">
+                        <label style="flex: 1">Ciudad
+                            <input type="text" required>
+                        </label>
+                        <label style="flex: 1">Código postal
+                            <input type="text" required>
+                        </label>
+                    </div>
+                    <label>Teléfono
+                        <input type="tel" required placeholder="Ej: 912 345 678">
+                    </label>
+                    <button type="submit" class="btn-confirmar">Guardar y continuar</button>
+                </form>
+            </div>
+            <!-- Delivery Paso 2 -->
+            <div class="bloque-delivery paso-inactivo" style="display:none">
+                <h3>Opciones de Delivery</h3>
+
+                <label class="opcion-delivery">
+                    <input type="radio" name="delivery" value="standard" checked>
+                    Envío estándar (3-5 días) – S/ 10.00
+                </label>
+                <label class="opcion-delivery">
+                    <input type="radio" name="delivery" value="express">
+                    Envío exprés (24-48h) – S/ 25.00
+                </label>
+                <label class="opcion-delivery">
+                    <input type="radio" name="delivery" value="pickup">
+                    Recojo en tienda (gratis)
+                </label>
+
+                <div style="margin-top: 20px;">
+                    <button id="btn-atras" class="btn-confirmar" style="background-color:#2568b5">Atrás</button>
+                    <button id="btn-siguiente" class="btn-confirmar">Siguiente</button>
+                </div>
+            </div>
+            <!-- Pagos Paso 3-->
+            <div class="bloque-pago paso-inactivo" style="display:none">
+                <h3>Método de Pago</h3>
+
+                <div>
+                    <label class="opcion-metodo-pago-yape">
+                    <input type="radio" name="pago" value="yape" checked> 
+                    Yape (Número: 987654321)
+                    </label>
+                    <label class="opcion-metodo-pago">
+                        <input type="radio" name="pago" value="tarjeta"> 
+                        Tarjeta de crédito / débito
+                    </label>
+                </div>
+
+                <div id="formulario-tarjeta" class="seccion-tarjeta" style="margin-top: 30px; display: none;">
+                    <h4>Detalles de Tarjeta</h4>
+                    <label>Número de tarjeta
+                        <input type="text" placeholder="XXXX-XXXX-XXXX-XXXX">
+                    </label>
+                    <div class="fila-doble">
+                        <label style="flex: 1">Fecha vencimiento
+                            <input type="text" placeholder="MM/AA">
+                        </label>
+                        <label style="flex: 1">CVV
+                            <input type="text" placeholder="123">
+                        </label>
+                    </div>
+                    <label>Nombre en la tarjeta
+                        <input type="text">
+                    </label>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <button id="btn-atras" class="btn-confirmar" style="background-color:#2568b5">Atrás</button>
+                    <button id="btn-confirmar-final" type="submit" class="btn-confirmar">Confirmar pedido</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Resumen carrito -->
+        <div class="bloque-carrito">
+            <h3><span class="icono-paso">🛒</span> Productos en tu pedido</h3>
+            <div id="productos-carrito"></div>
+            <div class="resumen-precios">
+                <div><span>Subtotal:</span><span id="subtotal-carrito">S/0.00</span></div>
+                <div><span>Impuestos:</span><span id="impuestos-carrito">S/0.00</span></div>
+                <div><strong>Total:</strong><strong id="total-general">S/0.00</strong></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mensaje-confirmacion" style="display:none; text-align:center; padding: 50px 20px;">
+    <h2 style="font-size: 2rem; color: #c2185b;">¡Gracias por tu orden!</h2>
+    <hr style="margin-top: 20px; border: none; border-top: 1px solid #ccc; width: 60%;">
+</div>
+
+<!--Sidebar carrito-->
+    <div id="sidebarCarrito" class="carrito-lateral oculto">
+        <!-- Capa de oscurecimiento -->
+        <div class="capa-oscura" onclick="cerrarCarrito()"></div>
+
+        <!-- Contenido del carrito -->
+        <div class="contenido-carrito">
+            <!-- ENCABEZADO -->
+            <div class="encabezado-carrito">
+                <h2>Tu Carrito</h2>
+                <button class="boton-cerrar" onclick="cerrarCarrito()">&times;</button>
+            </div>
+
+            <!-- CUANDO EL CARRITO TIENE PRODUCTOS -->
+            <div id="contenidoProductos" class="contenido-productos oculto">
+                <div id="lista-Productos" class="listaProductos"></div>
+
+                <div class="resumen-carrito">
+                    <div class="total">
+                        <span>Total:</span>
+                        <strong id="totalCarrito">S/0.00</strong>
+                    </div>
+                    <div class="acciones-carrito">
+                        <button class="btn vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
+                        <button class="btn continuar" onclick="cerrarCarrito()">Seguir comprando</button>
+                        <button class="btn comprar" onclick="realizarPedido()">Realizar pedido</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CUANDO EL CARRITO ESTÁ VACÍO -->
+            <div id="carritoVacio" class="carrito-vacio">
+                <p>Tu carrito de compras está vacío</p>
+                <button class="btn-transparente" onclick="cerrarCarrito()">Seguir comprando</button>
+            </div>
+        </div>
+    </div>
+
+<script src="/PF_D_Julia/public/JavaScript/script_carrito.js"></script>
+
+<script src="/PF_D_Julia/public/JavaScript/script_order.js"></script>
+</body>
+</html>

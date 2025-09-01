@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panadería D'Julia</title>
+    <link rel="stylesheet" href="CSS/pruebacss.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("active");
+        }
+
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+
+    <header class="navbar" style="box-shadow: 0px 2px 12px 2px rgb(0 0 0 / 35%);">
+        <div class="menu-toggle" style="color: black;" onclick="toggleMenu()">☰</div>
+          <div><a href="prueba.html#inicio" class="logo" style="color: black;"><span>D' Julia</span></a></div>
+          <div class="items">
+              <nav class="nav-links" id="navLinks" style="color: black;">
+                  <a href="../prueba.html#inicio">Inicio</a>
+                  <a href="../prueba.html#nosotros">Sobre Nosotros</a>
+                  <a href="../prueba.html#contacto">Contacto</a>
+                  <a href="../prueba.html#servicios">Servicios</a>
+                  <a href="../prueba.html#testimonios">Testimonios</a>
+                  <a href="../prueba.html#galeria">Galería</a>
+                  <a href="../prueba.html#locales">Locales</a>
+                  <a href="../prueba.html#carta">Menú</a>
+              </nav>
+              <div class="iconos" style="color: black;">
+                  <a href="../Iconos/ubicacion.html"><span class="material-symbols-outlined">near_me</span></a><!-- Ubicación -->
+                  <a style="cursor: pointer;" onclick="abrirCarrito()" class="icono-carrito">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span id="contadorCarrito" class="contador-carrito">0</span>
+                  </a><!-- Carrito -->
+                  <a href="../Iconos/telefono.html"><span class="material-symbols-outlined">phone</span></a><!-- Telefono -->
+                  <a href="../Iconos/account.html"><span class="material-symbols-outlined">account_circle</span></a> <!-- Cuenta -->
+              </div>
+        </div>
+        </div>
+    </header>
+    <section id="productos" class="seccion productos-section">
+      <div>
+          <div>
+          <h2>PANES </h2>
+          </div>
+      </div>
+    <div class="productos-grid">
+      
+  <div id="detalleProducto">
+    <div class="detalle-contenido">
+      <img id="detalleImagen" src="" alt="">
+      <div>
+        <h3 id="detalleNombre"></h3>
+        <p id="detalleDescripcion"></p>
+        <p id="detallePrecio"></p>
+
+        <div class="detalle-acciones">
+          <div class="detalle-cantidad">
+            <button onclick="cambiarCantidad(-1)" class="boton-cantidad">-</button>
+            <input type="text" id="cantidadInput" value="1" readonly>
+            <button onclick="cambiarCantidad(1)" class="boton-cantidad">+</button>
+          </div>
+
+          <button class="boton-carrito" onclick="agregarCarrito()">
+            Añadir al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+      <div class="product-card" onclick="mostrarDetalle(this, 'Hogaza de granos Andinos')">
+        <img src="/PF_D_Julia/public/Cliente/imagenes/Panes.webp" alt="Panes">
+        <div class="product-info">
+          <h3>Hogaza de granos Andinos</h3>
+          <p>S/16.00</p>
+        </div>
+      </div>
+
+      
+      <div class="product-card" onclick="mostrarDetalle(this, 'Hogaza de tanta zara')">
+        <img src="/PF_D_Julia/public/Cliente/imagenes/Pan Zata.webp" alt="Panes zara">
+        <div class="product-info">
+          <h3>Hogaza de tanta zara</h3>
+          <p>S/18.00</p>
+        </div>
+      </div>
+
+      
+      <div class="product-card" onclick="mostrarDetalle(this, 'Mini artesanal tanta zara')">
+        <img src="/PF_D_Julia/public/Cliente/imagenes/MiniZara.webp" alt="Panes mini zara">
+        <div class="product-info">
+          <h3>Mini artesanal tanta zara</h3>
+          <p>S/1.80</p>
+        </div>
+      </div>
+      </div>
+  </section>
+
+  <script>
+    const productos = {
+      "Hogaza de granos Andinos": {
+        descripcion: "Pan artesanal hecho a base de masa madre con quinua tricolor.Peso: 500 gr. aprox.",
+        precio: "S/16.00",
+        imagen: "/PF_D_Julia/public/Cliente/imagenes/Panes.webp"
+      },
+      "Hogaza de tanta zara": {
+        descripcion: "Pan artesanal hecho a base de masa madre con pasas, avena y miel.Peso: 500 gr. aprox.",
+        precio: "S/18.00",
+        imagen: "/PF_D_Julia/public/Cliente/imagenes/Pan Zata.webp"
+      },
+      "Mini artesanal tanta zara": {
+        descripcion: "Pan artesanal hecho a base de masa madre con pasas, avena y miel. 1 und.",
+        precio: "S/1.80",
+        imagen: "/PF_D_Julia/public/Cliente/imagenes/MiniZara.webp"
+      },
+    };
+
+    const detalle = document.getElementById('detalleProducto');
+    const detalleNombre = document.getElementById('detalleNombre');
+    const detalleDescripcion = document.getElementById('detalleDescripcion');
+    const detallePrecio = document.getElementById('detallePrecio');
+    const detalleImagen = document.getElementById('detalleImagen');
+    const cantidadInput = document.getElementById('cantidadInput');
+
+    let cantidad = 1;
+
+    function mostrarDetalle(elemento, nombreProducto) {
+      const producto = productos[nombreProducto];
+      if (!producto) return;
+
+      detalleNombre.textContent = nombreProducto;
+      detalleDescripcion.textContent = producto.descripcion;
+      detallePrecio.textContent = producto.precio;
+      detalleImagen.src = producto.imagen;
+      detalleImagen.alt = nombreProducto;
+      cantidad = 1;
+      cantidadInput.value = cantidad;
+
+      // Mostrar detalle y desplazar al producto
+      detalle.style.display = 'block';
+
+      // Opcional: Scroll suave hacia el detalle
+      detalle.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function cambiarCantidad(valor) {
+      cantidad += valor;
+      if (cantidad < 1) cantidad = 1;
+      cantidadInput.value = cantidad;
+    }
+
+    function agregarCarrito() {
+      const nombre = detalleNombre.textContent;
+      const precioTexto = detallePrecio.textContent; // "S/18.00"
+      const imagen = detalleImagen.src;
+
+      const precio = parseFloat(precioTexto.replace(/[^\d.]/g, ""));
+      const cantidadSeleccionada = parseInt(cantidadInput.value);
+
+      if (isNaN(precio)) return;
+
+      agregarProducto(nombre, precio, imagen, cantidadSeleccionada);
+
+      abrirCarrito();
+      cerrarDetalleProducto(); // Opcional: si quieres cerrar el panel de detalle
+    }
+
+    function cerrarDetalleProducto() {
+      detalle.style.display = 'none';
+    }
+  </script>
+
+
+  <footer>
+          <p>&copy; 2025 D'Julia - Todos los derechos reservados</p>
+  </footer>
+
+  <!--Sidebar carrito-->
+    <div id="sidebarCarrito" class="carrito-lateral oculto">
+        <!-- Capa de oscurecimiento -->
+        <div class="capa-oscura" onclick="cerrarCarrito()"></div>
+
+        <!-- Contenido del carrito -->
+        <div class="contenido-carrito">
+            <!-- ENCABEZADO -->
+            <div class="encabezado-carrito">
+                <h2>Tu Carrito</h2>
+                <button class="boton-cerrar" onclick="cerrarCarrito()">&times;</button>
+            </div>
+
+            <!-- CUANDO EL CARRITO TIENE PRODUCTOS -->
+            <div id="contenidoProductos" class="contenido-productos oculto">
+                <div id="lista-Productos" class="listaProductos"></div>
+
+                <div class="resumen-carrito">
+                    <div class="total">
+                        <span>Total:</span>
+                        <strong id="totalCarrito">S/0.00</strong>
+                    </div>
+                    <div class="acciones-carrito">
+                        <button class="btn vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
+                        <button class="btn continuar" onclick="cerrarCarrito()">Seguir comprando</button>
+                        <button class="btn comprar" onclick="realizarPedido()">Realizar pedido</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CUANDO EL CARRITO ESTÁ VACÍO -->
+            <div id="carritoVacio" class="carrito-vacio">
+                <p>Tu carrito de compras está vacío</p>
+                <button class="btn-transparente" onclick="cerrarCarrito()">Seguir comprando</button>
+            </div>
+        </div>
+    </div>
+
+  <script src="/PF_D_Julia/public/JavaScript/script_carrito.js"></script>
+</body>
+</html>

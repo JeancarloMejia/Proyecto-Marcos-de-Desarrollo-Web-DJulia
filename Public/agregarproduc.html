@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Nuevo Producto - DJULIA</title>
+    <link rel="stylesheet" href="CSS/agregar-producto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img class="logo" src="../Loggin/logo.png" alt="DJULIA">
+
+        </div>
+        <nav>
+            <ul>
+                <li><i class="fa fa-list"></i> CATÁLOGO</li>
+                <li class="active"><i class="fa fa-box"></i> TODOS LOS PRODUCTOS</li>
+                <li><i class="fa fa-image"></i> BANNER</li>
+                <li><i class="fa fa-bullhorn"></i> ANUNCIO</li>
+            </ul>
+        </nav>
+        <div class="categories">
+            <h4>Categories</h4>
+            <ul>
+                <li>PANES <span class="badge">21</span></li>
+                <li>CUCHARABLES <span class="badge">32</span></li>
+                <li>TORTAS <span class="badge">13</span></li>
+                <li>POSTRES <span class="badge">14</span></li>
+            </ul>
+        </div>
+    </aside>
+    <main>
+        <header class="main-header">
+            <div>
+                <h2>Agregar Nuevo Producto</h2>
+                <span class="breadcrumb">Inicio &gt; Todos los productos &gt; Agregar Nuevo Producto</span>
+            </div>
+            <div class="header-actions">
+                <span class="material-icons search-icon">search</span>
+                <span class="material-icons bell-icon">notifications</span>
+                <div class="admin-menu-container">
+                    <button class="admin-btn" id="adminMenuBtn">
+                        ADMIN <span class="material-icons"
+                            style="font-size:18px;vertical-align:middle;">expand_more</span>
+                    </button>
+                    <div class="admin-dropdown" id="adminDropdown">
+                        <div class="admin-dropdown-header">Admin</div>
+                        <button class="admin-dropdown-item cambiar" type="button">CAMBIAR CONTRASEÑA</button>
+                        <button class="admin-dropdown-item cerrar" type="button">CERRAR SESIÓN <span
+                                class="material-icons">logout</span></button>
+                        </span></button>
+                    </div>
+                </div>
+        </header>
+        <section class="product-add-container">
+            <!-- ...existing code... -->
+            <form class="product-add-form" id="productForm" enctype="multipart/form-data">
+                <div class="form-main">
+                    <label>
+                        <span>Información del Producto <span class="required">*</span></span>
+                        <input type="text" name="nombre" placeholder="Nombre" required>
+                    </label>
+                    <label>
+                        <span>Descripción</span>
+                        <textarea rows="3" name="descripcion"
+                            placeholder="p.ej., Una breve descripción del producto aquí."></textarea>
+                    </label>
+                    <label>
+                        <span>Categorías <span class="add-category">+Añadir</span></span>
+                        <input type="text" name="categoria" placeholder="SELECCIONAR">
+                    </label>
+                    <label>
+                        <span>Precio Regular</span>
+                        <input type="text" name="precio" placeholder="Precio">
+                    </label>
+                </div>
+                <div class="form-side">
+                    <div class="gallery-upload">
+                        <span class="material-icons gallery-icon">image</span>
+                        <div class="gallery-text">
+                            <p>Deja tu imagen aquí o navega</p>
+                            <small>Se permiten jpeg y png</small>
+                        </div>
+                        <input type="file" name="imagen" accept="image/jpeg,image/png">
+                    </div>
+                </div>
+            </form>
+            <!-- ...existing code... -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-black">SUBIR</button>
+                <button type="button" class="btn btn-cancel">CANCELAR</button>
+            </div>
+        </section>
+        <footer class="main-footer">
+            <span>© 2025 - DJULIA</span>
+            <nav>
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Policy</a>
+                <a href="#">Contact</a>
+            </nav>
+        </footer>
+    </main>
+    <script src="agregar-producto.js"></script>
+    <script>
+    // Envío AJAX del formulario para agregar producto
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('productForm');
+        const submitBtn = document.querySelector('.btn.btn-black');
+        if (form && submitBtn) {
+            submitBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                fetch('guardar-producto.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.text())
+                .then(resp => {
+                    if (resp.trim() === "ok") {
+                        alert("Producto guardado correctamente");
+                        window.location.href = "../productos/productos.html";
+                    } else {
+                        alert("Error al guardar: " + resp);
+                    }
+                })
+                .catch(err => {
+                    alert("Error de red: " + err);
+                });
+            });
+        }
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cambiar Contraseña - DJULIA</title>
+    <link rel="stylesheet" href="CSS/cambiar-contraseña.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap">
+    <style>
+        .change-form input.password-style,
+        .change-form input[type="password"] {
+            padding: 9px 12px;
+            border-radius: 7px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="change-container">
+        <form class="change-form" id="changePasswordForm" method="POST" action="../controller/recuperar.php">
+            <h2>Cambiar Contraseña</h2>
+
+            <label>
+                Correo Electrónico
+                <input type="email" name="correo" id="correo" required placeholder="example@correo.com" class="password-style">
+            </label>
+
+            <label>
+                Nueva Contraseña
+                <input type="password" name="nueva_contrasenia" id="nueva" required placeholder="Nueva contraseña">
+            </label>
+
+            <button type="submit" class="btn-change" id="guardarBtn">Guardar</button>
+            <button type="button" class="btn-cancel" id="cancelBtn">Cancelar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('cancelBtn').addEventListener('click', () => {
+            window.location.href = '../Public/loggin.html';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>D'JULIA Panel - Productos</title>
+    <link rel="stylesheet" href="CSS/productos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="../Loggin/logo.png" alt="DJULIA" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><i class="fa fa-list"></i> CATÁLOGO</li>
+                <li class="active"><i class="fa fa-box"></i> TODOS LOS PRODUCTOS</li>
+                <li><i class="fa fa-image"></i> BANNER</li>
+                <li><i class="fa fa-bullhorn"></i> ANUNCIO</li>
+            </ul>
+        </nav>
+        <div class="categories">
+            <h4>Categories</h4>
+            <ul>
+                <li>PANES <span class="badge">21</span></li>
+                <li>CUCHARABLES <span class="badge">32</span></li>
+                <li>TORTAS <span class="badge">13</span></li>
+                <li>POSTRES <span class="badge">14</span></li>
+            </ul>
+        </div>
+    </aside>
+    <main>
+        <header class="main-header">
+            <div>
+                <h2>Todos los productos</h2>
+                <span class="breadcrumb">Home &gt; Todos los productos</span>
+            </div>
+            <div class="header-actions">
+                <button class="add-product-btn">
+                    <span class="material-icons">add</span> AGREGAR PRODUCTO
+                </button>
+                <span class="material-icons search-icon" id="searchIcon">search</span>
+                <span class="material-icons bell-icon" id="notifIcon">notifications</span>
+                <div class="admin-menu-container">
+                    <button class="admin-btn" id="adminMenuBtn">
+                        ADMIN <span class="material-icons"
+                            style="font-size:18px;vertical-align:middle;">expand_more</span>
+                    </button>
+                    <div class="admin-dropdown" id="adminDropdown">
+                        <div class="admin-dropdown-header">Admin</div>
+                        <button class="admin-dropdown-item cambiar" type="button">CAMBIAR CONTRASEÑA</button>
+                        <button class="admin-dropdown-item cerrar" type="button">CERRAR SESIÓN <span
+                                class="material-icons">logout</span></button>
+                    </div>
+                </div>
+                <!-- Caja de búsqueda -->
+                <div class="search-box" id="searchBox" style="display:none;">
+                    <input type="text" id="searchInput" placeholder="Buscar producto...">
+                </div>
+                <!-- Panel de notificaciones -->
+                <div class="notif-panel" id="notifPanel" style="display:none;">
+                    <p>No tienes notificaciones nuevas.</p>
+                </div>
+            </div>
+        </header>
+        <section class="products-grid" id="productsGrid">
+            <!-- Los productos se renderizan aquí por JS -->
+        </section>
+        <footer class="pagination-footer">
+            <div class="pagination" id="pagination">
+                <!-- La paginación se renderiza aquí por JS -->
+            </div>
+        </footer>
+        <footer class="main-footer">
+            <span>© 2023 - DJULIA</span>
+            <nav>
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Policy</a>
+                <a href="#">Contact</a>
+            </nav>
+        </footer>
+    </main>
+    <script src="productos.js"></script>
+</body>

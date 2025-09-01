@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Banner - DJULIA</title>
+    <link rel="stylesheet" href="CSS/banner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="../Loggin/logo.png" alt="DJULIA" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><i class="fa fa-list"></i> CATÁLOGO</li>
+                <li><i class="fa fa-box"></i> TODOS LOS PRODUCTOS</li>
+                <li class="active"><i class="fa fa-image"></i> BANNER</li>
+                <li><i class="fa fa-bullhorn"></i> ANUNCIO</li>
+            </ul>
+        </nav>
+        <div class="categories">
+            <h4>Categories</h4>
+            <ul>
+                <li>PANES <span class="badge">21</span></li>
+                <li>CUCHARABLES <span class="badge">32</span></li>
+                <li>TORTAS <span class="badge">13</span></li>
+                <li>POSTRES <span class="badge">14</span></li>
+            </ul>
+        </div>
+    </aside>
+    <main>
+        <header class="main-header">
+            <div>
+                <h2>Banner</h2>
+                <span class="breadcrumb">Home &gt; Banner</span>
+            </div>
+            <div class="header-actions">
+                <span class="material-icons search-icon">search</span>
+                <span class="material-icons bell-icon">notifications</span>
+                <div class="admin-menu-container">
+                    <button class="admin-btn" id="adminMenuBtn">
+                        ADMIN <span class="material-icons"
+                            style="font-size:18px;vertical-align:middle;">expand_more</span>
+                    </button>
+                    <div class="admin-dropdown" id="adminDropdown">
+                        <div class="admin-dropdown-header">Admin</div>
+                        <button class="admin-dropdown-item cambiar" type="button">CAMBIAR CONTRASEÑA</button>
+                        <button class="admin-dropdown-item cerrar" type="button">
+                            CERRAR SESIÓN <span class="material-icons">logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="banner-container">
+            <div class="banner-left">
+                <div class="banner-left-header">
+                    <span>Elegir imagen</span>
+                    <button class="add-btn"><span class="material-icons">add</span></button>
+                </div>
+                <button class="banner-btn upload-btn"><span class="material-icons">upload</span> Subir</button>
+                <button class="banner-btn biblioteca-imagenes-btn"><span class="material-icons">photo_library</span> Biblioteca de imágenes</button>
+                <button class="banner-btn biblioteca-videos-btn"><span class="material-icons">video_library</span> Biblioteca de videos</button>
+                <input type="text" class="search-image-input" placeholder="Buscar imagen" disabled
+                    style="background:#e5e5e5; color:#888; margin:10px 0;">
+                <div class="banner-thumbs">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80"
+                        alt="thumb1">
+                    <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=400&q=80"
+                        alt="thumb2">
+                    <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=400&q=80"
+                        alt="thumb3">
+                    <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80"
+                        alt="thumb4">
+                </div>
+                <button class="delete-banner-btn"><span class="material-icons">delete</span> Eliminar banner</button>
+            </div>
+            <div class="banner-right">
+                <span class="banner-actual-title">Banner Actual</span>
+                <div class="banner-actual-img" id="mainBannerContainer">
+                    <img id="mainBannerImg"
+                        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
+                        alt="Banner Actual">
+                </div>
+                <div class="banner-actual-thumbs">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80"
+                        alt="thumb1" class="thumb-active">
+                    <img src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=400&q=80"
+                        alt="thumb2">
+                </div>
+            </div>
+        </section>
+        <footer class="main-footer">
+            <span>© 2025 - DJULIA</span>
+            <nav>
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Policy</a>
+                <a href="#">Contact</a>
+            </nav>
+        </footer>
+    </main>
+
+    <!-- Modal Biblioteca de Imágenes -->
+    <div id="imageLibraryModal" class="image-library-modal">
+        <div class="image-library-content">
+            <div class="image-library-header">
+                <span>Biblioteca de Imágenes</span>
+                <button id="closeLibraryBtn" class="close-btn">&times;</button>
+            </div>
+            <input type="text" id="searchImageInput" placeholder="Buscar imagen...">
+            <div id="imageLibraryGrid" class="image-library-grid">
+                <!-- Imágenes se cargan por JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Biblioteca de Videos -->
+    <div id="videoLibraryModal" class="image-library-modal">
+        <div class="image-library-content">
+            <div class="image-library-header">
+                <span>Biblioteca de Videos</span>
+                <button id="closeVideoLibraryBtn" class="close-btn">&times;</button>
+            </div>
+            <input type="text" id="searchVideoInput" placeholder="Buscar video...">
+            <div id="videoLibraryGrid" class="image-library-grid">
+                <!-- Videos se cargan por JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="banner.js"></script>
+    <script>
+        // Opcional: Asegura que los botones abran el modal si el JS principal falla
+        document.querySelector('.biblioteca-imagenes-btn').onclick = function () {
+            document.getElementById('imageLibraryModal').classList.add('active');
+        };
+        document.querySelector('.biblioteca-videos-btn').onclick = function () {
+            document.getElementById('videoLibraryModal').classList.add('active');
+        };
+    </script>
+</body>
+</html>

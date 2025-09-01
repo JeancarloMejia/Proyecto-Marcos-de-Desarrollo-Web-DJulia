@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/pruebacss.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&family=Merriweather:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Panaderia D' Julia</title>
+</head>
+
+<body>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("active");
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+
+        window.addEventListener("scroll", function () {
+            const navbar = document.querySelector(".navbar");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+    <!--Navbar-->
+    <header class="navbar">
+        <div class="menu-toggle" onclick="toggleMenu()"><span>☰</span></div>
+        <div><a href="#inicio" class="logo"><span>D' Julia</span></a></div>
+        <div class="items">
+            <nav class="nav-links" id="navLinks">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Sobre Nosotros</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#galeria">Galería</a>
+                <a href="#locales">Locales</a>
+                <a href="#carta">Menú</a>
+            </nav>
+
+            <div class="iconos">
+                <a href="Iconos/ubicacion.html"><span class="material-symbols-outlined">near_me</span></a><!-- Ubicación -->
+                <a style="cursor: pointer;" onclick="abrirCarrito()" class="icono-carrito">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span id="contadorCarrito" class="contador-carrito">0</span></a><!-- Carrito -->
+                </a><!-- Carrito -->
+                <a href="Iconos/telefono.html"><span class="material-symbols-outlined">phone</span></a><!-- Telefono -->
+                <div id="usuario-menulista" class="usermenu">
+                    <a href="Iconos/account.html" id="icono-usuario">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </a>
+                    
+                    <div class="usermenu-content" id="menu-usuario" style="display: none;">
+                        <div id="nombre-usuario">¡Hola, Usuario!</div>
+                        <a href="#" onclick="alert('Esta sección aún está en desarrollo...'); return false;">Mi Cuenta</a>
+                        <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="fr_container">
+        <div id="inicio"></div>
+        <img class="img_principal" src="https://files.cdn-files-a.com/uploads/10617969/2000_un-67fad1cdb7888.jpg"
+            alt="Banner de la panadería" />
+        <div class="space"></div>
+        <section class="banner">
+            <div class="contenido-banner">
+                <h1>Panadería y Pastelería como en Casa</h1>
+                <p>Ingredientes Frescos para Momentos Especiales</p>
+                <form class="subscribe-form">
+                    <div class="input-group">
+                        <span class="input-icon">&#9993;</span>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+            </div>
+        </section>
+        <!--Sidebar carrito-->
+        <div id="sidebarCarrito" class="carrito-lateral oculto">
+            <!-- Capa de oscurecimiento -->
+            <div class="capa-oscura" onclick="cerrarCarrito()"></div>
+
+            <!-- Contenido del carrito -->
+            <div class="contenido-carrito">
+                <!-- ENCABEZADO -->
+                <div class="encabezado-carrito">
+                    <h2>Tu Carrito</h2>
+                    <button class="boton-cerrar" onclick="cerrarCarrito()">&times;</button>
+                </div>
+
+                <!-- CUANDO EL CARRITO TIENE PRODUCTOS -->
+                <div id="contenidoProductos" class="contenido-productos oculto">
+                    <div id="lista-Productos" class="listaProductos"></div>
+
+                    <div class="resumen-carrito">
+                        <div class="total">
+                            <span>Total:</span>
+                            <strong id="totalCarrito">S/0.00</strong>
+                        </div>
+                        <div class="acciones-carrito">
+                            <button class="btn vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
+                            <button class="btn continuar" onclick="cerrarCarrito()">Seguir comprando</button>
+                            <button class="btn comprar" onclick="realizarPedido()">Realizar pedido</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CUANDO EL CARRITO ESTÁ VACÍO -->
+                <div id="carritoVacio" class="carrito-vacio">
+                    <p>Tu carrito de compras está vacío</p>
+                    <button class="btn-transparente" onclick="cerrarCarrito()">Seguir comprando</button>
+                </div>
+            </div>
+        </div>
+
+        <!--Seccion de Nosotros-->
+        <section id="nosotros" class="nosotros">
+            <div class="nosotros-container">
+                <img class="secondary_img" src="https://files.cdn-files-a.com/uploads/10617969/800_67fabeafaee47.jpg"
+                    alt="Imagen de la panadería" />
+
+                <div class="text-container">
+                    <h2>Sobre Nosotros</h2>
+                    <p>
+                        En D'Julia, nos enorgullecemos de ofrecer productos de panadería y pastelería artesanales
+                        elaborados
+                        con ingredientes frescos y de alta calidad. Nuestro ambiente acogedor y familiar garantiza que
+                        cada
+                        detalle, desde el sabor hasta la presentación, refleje calidez, tradición y pasión por la
+                        exquisitez
+                        casera.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!--Seccion de Nosotros_parte2-->
+        <section class="nosotros_2">
+            <div class="nosotros-container_2">
+                <div class="text-container_2">
+                    <h2>Descubra el verdadero sabor de la tradición</h2>
+                    <p>
+                        Saborea el arte en cada bocado
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!--Seccion de Contactanos-->
+        <div class="contact-section-wrapper">
+            <div id="contacto" class="contact-container">
+                <div class="seccion-titulo">
+                    <div class="seccion-box-titulo">
+                        <h2>CONTACTO</h2>
+                    </div>
+                </div>
+                <p>Si tienes alguna consulta o deseas realizar un pedido, no dudes en contactarnos. Estamos aquí para
+                    ayudarte.</p>
+
+                <form action="#" method="post" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Nombre Completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Mensaje"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Contactanos</button>
+                </form>
+                <div class="map_info_-container">
+                    <div class="contact-info">
+                        <p><i class="fas "></i> San Borja, Lima, Perú</p>
+                        <p><i class="fas"></i> +51-987403541</p>
+                        <p><i class="far"></i> Lunes - Jueves 8:00 am - 8pm</p>
+                        <p class="atencion">Viernes a Domingo 9:00 am - 10:30 pm</p>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31219.83911418419!2d-77.00486382089842!3d-12.091088900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c7dce5c98f57%3A0x90fe92f97b3236a!2sSan%20Borja!5e0!3m2!1ses-419!2spe!4v1716078957019!5m2!1ses-419!2spe"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Seccion de Servicios-->
+    <section id="servicios" class="seccion servicios-section">
+        <div class="seccion-titulo">
+            <div class="seccion-box-titulo">
+                <h2>Servicios</h2>
+            </div>
+        </div>
+        <div class="servicios-grid">
+            <div class="servicios-card">
+                <img class="img-service img-circle-mini" src="imagenes/pastel.webp" alt="Servicio 1">
+                <div class="servicios-info">
+                    <h4>Pasteles Personalizados</h4>
+                    <p>Celebre sus momentos especiales con nuestros pasteles personalizados diseñados para cumplir con
+                        sus especificaciones exactas, asegurando que cada porción sea tan memorable como el evento en
+                        sí.</p>
+                </div>
+            </div>
+            <div class="servicios-card">
+                <img class="img-service img-circle-mini" src="imagenes/muffin.webp" alt="Servicio 2">
+                <div class="servicios-info">
+                    <h4>Deliciosos Pasteles</h4>
+                    <p>Deléitese con nuestra selección de pasteles, cada uno elaborado con una mezcla única de tradición
+                        y creatividad, perfectos para cualquier ocasión.</p>
+                </div>
+            </div>
+            <div class="servicios-card">
+                <img class="img-service img-circle-mini" src="imagenes/panadero.webp" alt="Servicio 3">
+                <div class="servicios-info">
+                    <h4>Panes Artesanales</h4>
+                    <p>Nuestros panes se elaboran artesanalmente y se hornean a diario con los mejores ingredientes.
+                        Disfrute de una variedad de sabores que satisfacen gustos clásicos y contemporáneos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Seccion de Testimonios-->
+    <section id="testimonios" class="seccion testimonios-section">
+        <div class="seccion-titulo">
+            <div class="seccion-box-titulo">
+                <h2>Testimonios</h2>
+            </div>
+        </div>
+        <div class="testimonios-grid">
+            <div class="testimonios-grid-row">
+                <div class="testimonios-category">
+                    <div class="testimonios-card">
+                        <div class="testimonio-bloque">
+                            <blockquote>
+                                <p>
+                                    <span class="icon-comilla">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/quote-left.svg?v=2"
+                                            alt="">
+                                    </span>
+                                    ¡El pan de D'Julia es único! Tiene un sabor casero y reconfortante que evoca buenos
+                                    recuerdos.
+                                    <span class="icon-comilla">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/quote-right.svg?v=2"
+                                            alt="">
+                                    </span>
+                                </p>
+                                <img class="img-testimony" src="imagenes/testimonio1.webp" alt="Testimonio 3">
+                                <div class="testimonios-wrap">
+                                    <strong class="testimonios-name">James Smith</strong>
+                                    <div>
+                                        <span class="testimonios-role">Un cliente habitual que disfruta de los productos
+                                            horneados.</span>
+                                    </div>
+                                </div>
+                                <div class="testimonio-rate">
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="testimonios-card">
+                        <div class="testimonio-bloque">
+                            <blockquote>
+                                <p>
+                                    <span class="icon-comilla">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/quote-left.svg?v=2"
+                                            alt="">
+                                    </span>
+                                    Pedí un pastel personalizado para el cumpleaños de mi hija y quedó perfecto en todos
+                                    los sentidos. ¡Delicioso y con un diseño precioso!
+                                    <span class="icon-comilla">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/quote-right.svg?v=2"
+                                            alt="">
+                                    </span>
+                                </p>
+                                <img class="img-testimony" src="imagenes/jondoe.webp" alt="Testimonio 3">
+                                <div class="testimonios-wrap">
+                                    <strong class="testimonios-name">John Doe</strong>
+                                    <div>
+                                        <span class="testimonios-role">Padre que encargó un pastel para una ocasión
+                                            especial.</span>
+                                    </div>
+                                </div>
+                                <div class="testimonio-rate">
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                </div>
+                        </div>
+                        </blockquote>
+                    </div>
+                    <div class="testimonios-card">
+                        <div class="testimonio-bloque">
+                            <blockquote>
+                                <p>
+                                    <span class="icon-comilla">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/quote-left.svg?v=2"
+                                            alt="">
+                                    </span>
+                                    ¡Los pasteles son simplemente divinos! Cada bocado es un delicioso viaje de sabores.
+                                    <span class="icon-comilla">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/quote-right.svg?v=2"
+                                            alt="">
+                                    </span>
+                                </p>
+                                <img class="img-testimony" src="imagenes/mariafernandez.webp" alt="Testimonio 3">
+                                <div class="testimonios-wrap">
+                                    <strong class="testimonios-name">Maria Fernandez</strong>
+                                    <div>
+                                        <span class="testimonios-role">Amante de la repostería y visitante
+                                            frecuente.</span>
+                                    </div>
+                                </div>
+                                <div class="testimonio-rate">
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                    <span class="icon-star">
+                                        <img src="https://images.cdn-files-a.com/ready_uploads/svg/star.svg?v=2"
+                                            alt="estrella">
+                                    </span>
+                                </div>
+                        </div>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!--Seccion de Galería-->
+    <section id="galeria" class="seccion galeriasec">
+        <div class="seccion-titulo">
+            <div class="seccion-box-titulo">
+                <h2>Galería</h2>
+            </div>
+        </div>
+        <div class="galeria-container">
+            <div class="galeria-category">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="imagenes/galeria1.png" alt="1"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria2.png" alt="2"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria3.png" alt="3"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria4.png" alt="4"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria5.png" alt="5"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria6.png" alt="6"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria7.png" alt="7"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria8.png" alt="8"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria9.png" alt="9"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria10.png" alt="10"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria11.png" alt="11"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria12.png" alt="12"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria13.png" alt="13"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria14.png" alt="14"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria15.png" alt="15"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria16.png" alt="16"></div>
+                        <div class="swiper-slide"><img src="imagenes/galeria17.webp" alt="17"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="galeria-plus"></div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="/PF_D_Julia/public/JavaScript/script.js"></script>
+
+    <section id="locales" class="seccion locales-section">
+        <div class="seccion-titulo">
+            <div class="seccion-box-titulo">
+                <h2>Nuestras Sedes</h2>
+            </div>
+        </div>
+        <div class="locales-grid">
+            <!-- San Borja -->
+            <div class="local-card">
+                <img src="imagenes/local1.webp" alt="Local San Borja">
+                <div class="local-info">
+                    <h3>D'Julia Sede San Borja</h3>
+                    <p class="tipo-local">Principal</p>
+                    <p>Av. Aviación 2852, San Borja 15036</p>
+                </div>
+            </div>
+            <!-- San Miguel -->
+            <div class="local-card">
+                <img src="imagenes/local2.webp" alt="Local San Miguel">
+                <div class="local-info">
+                    <h3>D'Julia Sede San Miguel</h3>
+                    <p class="tipo-local">Segundo Local</p>
+                    <p>Av. La Marina 2000, San Miguel</p>
+                </div>
+            </div>
+            <!-- Miraflores -->
+            <div class="local-card">
+                <img src="imagenes/local3.webp" alt="Local Miraflores">
+                <div class="local-info">
+                    <h3>D'Julia Sede Miraflores</h3>
+                    <p class="tipo-local">Tercer Local</p>
+                    <p>Av. Sta. Cruz 1296, Miraflores 15073</p>
+                </div>
+            </div>
+            <!-- Barranco -->
+            <div class="local-card">
+                <img src="imagenes/local4.webp" alt="Local Barranco">
+                <div class="local-info">
+                    <h3>D'Julia Sede Barranco</h3>
+                    <p class="tipo-local">Cuarto Local</p>
+                    <p>Jirón Pedro Martinto 114, Barranco 15063</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="carta" class="seccion carta-section">
+        <div class="seccion-titulo">
+            <div class="seccion-box-titulo">
+                <h2>Nuestra Carta</h2>
+            </div>
+        </div>
+        <div class="carta-grid">
+            <!-- Panes -->
+            <div class="carta-card" onclick="location.href='Panes.html'">
+                <img src="imagenes/Panes.webp" alt="Panes">
+                <div class="carta-info">
+                    <h3>Panes</h3>
+                    <p>3 productos disponibles</p>
+                </div>
+            </div>
+            <!-- Postres -->
+            <div class="carta-card" onclick="location.href='Postres.html'">
+                <img src="imagenes/Postres.webp" alt="Postres">
+                <div class="carta-info">
+                    <h3>Postres</h3>
+                    <p>6 productos disponibles</p>
+                </div>
+            </div>
+            <!-- Cuchareables -->
+            <div class="carta-card" onclick="location.href='Cuchareables.html'">
+                <img src="imagenes/Cuchareable.webp" alt="Cuchareables">
+                <div class="carta-info">
+                    <h3>Cuchareables</h3>
+                    <p>5 productos disponibles</p>
+                </div>
+            </div>
+            <!-- Tortas -->
+            <div class="carta-card" onclick="location.href='Tortas.html'">
+                <img src="imagenes/Tortas.webp" alt="Tortas">
+                <div class="carta-info">
+                    <h3>Tortas</h3>
+                    <p>5 productos disponibles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 D'Julia - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="/PF_D_Julia/public/JavaScript/carritoP.js"></script>
+    <script src="/PF_D_Julia/public/JavaScript/Sesion.js"></script>
+</body>
+
+</html>

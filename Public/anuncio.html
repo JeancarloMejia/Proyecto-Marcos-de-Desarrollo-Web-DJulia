@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anuncio - DJULIA</title>
+    <link rel="stylesheet" href="CSS/anuncio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="../Loggin/logo.png" alt="DJULIA" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><i class="fa fa-list"></i> CATÁLOGO</li>
+                <li><i class="fa fa-box"></i> TODOS LOS PRODUCTOS</li>
+                <li><i class="fa fa-image"></i> BANNER</li>
+                <li class="active"><i class="fa fa-bullhorn"></i> ANUNCIO</li>
+            </ul>
+        </nav>
+        <div class="categories">
+            <h4>Categories</h4>
+            <ul>
+                <li>PANES <span class="badge">21</span></li>
+                <li>CUCHARABLES <span class="badge">32</span></li>
+                <li>TORTAS <span class="badge">13</span></li>
+                <li>POSTRES <span class="badge">14</span></li>
+            </ul>
+        </div>
+    </aside>
+    <main>
+        <header class="main-header">
+            <div>
+                <h2>Anuncio</h2>
+                <span class="breadcrumb">Home &gt; Anuncio</span>
+            </div>
+            <div class="header-actions">
+                <span class="material-icons search-icon">search</span>
+                <span class="material-icons bell-icon">notifications</span>
+                <div class="admin-menu-container">
+                    <button class="admin-btn" id="adminMenuBtn">
+                        ADMIN <span class="material-icons"
+                            style="font-size:18px;vertical-align:middle;">expand_more</span>
+                    </button>
+                    <div class="admin-dropdown" id="adminDropdown">
+                        <div class="admin-dropdown-header">Admin</div>
+                        <button class="admin-dropdown-item cambiar" type="button">CAMBIAR CONTRASEÑA</button>
+                        <button class="admin-dropdown-item cerrar" type="button">CERRAR SESIÓN <span
+                                class="material-icons">logout</span></button>
+                        </span></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="anuncio-container">
+            <form class="anuncio-form">
+                <div class="anuncio-form-left">
+                    <label class="file-upload-label">
+                        <div class="file-upload-box" id="fileUploadBox">
+                            <span class="material-icons upload-icon">image</span>
+                            <div class="upload-text">
+                                <p>Tipos de archivo que puedas subir: PDF, PPT, Word, Excel, JPG, mp3, mp4, zip o rar
+                                </p>
+                            </div>
+                            <input type="file" id="anuncioFileInput" multiple>
+                        </div>
+                    </label>
+                </div>
+                <div class="anuncio-form-right">
+                    <label>
+                        <span>Título</span>
+                        <input type="text" placeholder="Escriba el título aquí" required>
+                    </label>
+                    <label>
+                        <span>Descripción</span>
+                        <textarea rows="4" placeholder="Escriba descripción aquí"></textarea>
+                    </label>
+                    <label>
+                        <span>Fecha publicación</span>
+                        <input type="text" placeholder="DD/MM/AAAA">
+                    </label>
+                    <label>
+                        <span>Estado</span>
+                        <select>
+                            <option>Publicado</option>
+                            <option>Borrador</option>
+                            <option>Archivado</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Visibilidad</span>
+                        <select>
+                            <option>Público</option>
+                            <option>Privado</option>
+                        </select>
+                    </label>
+                </div>
+            </form>
+            <div class="anuncio-actions">
+                <button type="submit" class="btn btn-purple">Guardar</button>
+                <button type="button" class="btn btn-cancel">Cancelar</button>
+            </div>
+        </section>
+        <footer class="main-footer">
+            <span>© 2025 - DJULIA</span>
+            <nav>
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Policy</a>
+                <a href="#">Contact</a>
+            </nav>
+        </footer>
+    </main>
+    <script src="anuncio.js"></script>
+</body>
+
+</html>

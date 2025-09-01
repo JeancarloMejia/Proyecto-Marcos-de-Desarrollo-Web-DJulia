@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del producto - DJULIA</title>
+    <link rel="stylesheet" href="CSS/detalles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo-section">
+            <img src="../Loggin/logo.png" alt="DJULIA" class="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><i class="fa fa-list"></i> CATÁLOGO</li>
+                <li  class="active"><i class="fa fa-box"></i> TODOS LOS PRODUCTOS</li>
+                <li><i class="fa fa-image"></i> BANNER</li>
+                <li><i class="fa fa-bullhorn"></i> ANUNCIO</li>
+            </ul>
+        </nav>
+        <div class="categories">
+            <h4>Categories</h4>
+            <ul>
+                <li>PANES <span class="badge">21</span></li>
+                <li>CUCHARABLES <span class="badge">32</span></li>
+                <li>TORTAS <span class="badge">13</span></li>
+                <li>POSTRES <span class="badge">14</span></li>
+            </ul>
+        </div>
+    </aside>
+    <main>
+        <header class="main-header">
+            <div>
+                <h2>Detalles del producto</h2>
+                <span class="breadcrumb">Inicio &gt; Todos los productos &gt; Detalles del producto</span>
+            </div>
+            <div class="header-actions">
+                <span class="material-icons search-icon">search</span>
+                <span class="material-icons bell-icon">notifications</span>
+                <div class="admin-menu-container">
+                    <button class="admin-btn" id="adminMenuBtn">
+                        ADMIN <span class="material-icons"
+                            style="font-size:18px;vertical-align:middle;">expand_more</span>
+                    </button>
+                    <div class="admin-dropdown" id="adminDropdown">
+                        <div class="admin-dropdown-header">Admin</div>
+                        <button class="admin-dropdown-item cambiar" type="button">CAMBIAR CONTRASEÑA</button>
+                        <button class="admin-dropdown-item cerrar" type="button">CERRAR SESIÓN <span
+                                class="material-icons">logout</span></button>
+                        </span></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="product-detail-container">
+            <form class="product-detail-form">
+                <div class="form-main">
+                    <label>
+                        <span>Información del Producto</span>
+                        <input type="text" value="Soufflé de fresas DC">
+                    </label>
+                    <label>
+                        <span>Descripción</span>
+                        <textarea rows="3">Bizcochuelo de vainilla relleno con fresas, manjar y chantilly. Decorado con butterscotch fresas y chantilly. Mantener refrigerado.
+
+Porciones: 15 a 20 aprox.</textarea>
+                    </label>
+                    <label>
+                        <span>Categorías <span class="add-category">+Añadir</span></span>
+                        <input type="text" value="TORTAS">
+                    </label>
+                    <div class="form-row">
+                        <label>
+                            <span>SKU</span>
+                            <input type="text" value="#32A53">
+                        </label>
+                        <label>
+                            <span>Stock</span>
+                            <input type="number" value="20">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label>
+                            <span>Precio Regular</span>
+                            <input type="text" value="S/80.00">
+                        </label>
+                        <label>
+                            <span>Precio Descuento</span>
+                            <input type="text" value="S/70.00">
+                        </label>
+                    </div>
+                </div>
+                <div class="form-side">
+                    <div class="main-image">
+                        <img src="https://placehold.co/260x200?text=Souffle+de+fresas+DC" alt="Producto">
+                    </div>
+                    <div class="gallery-upload">
+                        <span class="material-icons gallery-icon">image</span>
+                        <div class="gallery-text">
+                            <p>Deja tu imagen aquí o navega</p>
+                            <small>Se permiten jpeg y png</small>
+                        </div>
+                        <input type="file" id="imageInput" accept="image/jpeg,image/png, image/webp">
+                    </div>
+                </div>
+            </form>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-black" id="uploadBtn">SUBIR</button>
+                <button type="button" class="btn btn-danger">ELIMINAR</button>
+                <button type="button" class="btn btn-cancel" onclick="location.href='../productos/productos.html'">CANCELAR</button>
+            </div>
+        </section>
+        <footer class="main-footer">
+            <span>© 2025 - DJULIA</span>
+            <nav>
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Policy</a>
+                <a href="#">Contact</a>
+            </nav>
+        </footer>
+    </main>
+    <script src="detalles.js"></script>
+</body>
+
+</html>

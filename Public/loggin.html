@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>D'JULIA Login</title>
+    <link rel="stylesheet" href="CSS/loggin.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="imagenes/pasteles.jpg" alt="Pasteles" class="bg-img">
+        </div>
+        <div class="right">
+            <div class="login-box">
+                <img src="imagenes/logo.png" alt="D'JULIA" class="logo">
+                <h2>Login</h2>
+
+                <form action="../controller/login.php" method="POST">
+                    <input type="text" placeholder="Correo" name="correo" id="user" required>
+                    <input type="password" placeholder="Password" name="password" id="password" required>
+
+                    <div class="remember">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Recordarme</label>
+                    </div>
+
+                    <button type="submit" class="login-btn">
+                        USER LOGIN <span class="arrow">&#8594;</span>
+                    </button>
+
+                    <div class="recordar-recuperar" style="text-align: center">
+                        <a href="Registrar.html" style="text-decoration: none; color: black;">
+                            Registrate
+                        </a>
+                    </div>
+                    <div class="recordar-recuperar" style="text-align: center">
+                        <a href="cambiarcontraseña.html" style="text-decoration: none; color: black;">
+                            Recuperar Contraseña
+                        </a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

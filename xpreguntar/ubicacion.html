@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ubicación - D'Julia</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .fondo {
+            background-color: rgba(0, 0, 0, 0.9);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .cerrar {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .cerrar:hover {
+            color: #b83267;
+        }
+
+        .titulo {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .titulo i {
+            margin-right: 10px;
+        }
+
+        .titulo:hover {
+            color: #b83267;
+        }
+
+        .iconos {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .icono img {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s, filter 0.3s;
+        }
+
+        .icono:hover img {
+            filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(4073%) hue-rotate(315deg) brightness(87%) contrast(99%);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fondo">
+        <a href="/PF_D_Julia/public/Cliente/prueba.html" class="cerrar"><i class="fas fa-times"></i></a>
+
+        <div class="contenido">
+            <a href="https://www.google.com.pe/maps/place/D'JULIA+-+PUEBLO+LIBRE/@-12.0723753,-77.0652099,18z/data=!4m14!1m7!3m6!1s0x9105c921c71e489b:0x8d857a5f762595e8!2sD'JULIA+-+PUEBLO+LIBRE!8m2!3d-12.0723812!4d-77.0641143!16s%2Fg%2F11gy675t6q!3m5!1s0x9105c921c71e489b:0x8d857a5f762595e8!8m2!3d-12.0723812!4d-77.0641143!16s%2Fg%2F11gy675t6q?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D"
+                target="_blank" class="titulo">
+                <i class="fas fa-map-marker-alt"></i> Pueblo Libre, Lima, Perú
+            </a>
+
+            <div class="iconos">
+                <a href="https://www.google.com.pe/maps/place/D'JULIA+-+PUEBLO+LIBRE/@-12.0723753,-77.0652099,18z/data=!4m14!1m7!3m6!1s0x9105c921c71e489b:0x8d857a5f762595e8!2sD'JULIA+-+PUEBLO+LIBRE!8m2!3d-12.0723812!4d-77.0641143!16s%2Fg%2F11gy675t6q!3m5!1s0x9105c921c71e489b:0x8d857a5f762595e8!8m2!3d-12.0723812!4d-77.0641143!16s%2Fg%2F11gy675t6q?hl=es-419&entry=ttu&g_ep=EgoyMDI1MDUxNS4xIKXMDSoASAFQAw%3D%3D"
+                    target="_blank" class="icono google"><img
+                        src="https://cdn-cms-s.f-static.net/files/images/google_map_white_small.png?v=g84024"
+                        alt="Google Maps"></a>
+
+                <a href="https://www.waze.com/es/live-map/directions/djulia-andalucia-pueblo-libre?navigate=yes&to=place.w.185403023.1854292377.37035095"
+                    target="_blank" class="icono waze"><img
+                        src="https://cdn-cms-s.f-static.net/files/images/waze_white_small.png?v=g84024" alt="Waze"></a>
+
+                <a href="https://maps.apple.com/?q=D'Julia+Per%C3%BA+-+Pasteler%C3%ADa&ll=-12.1043596,-77.0056885"
+                    target="_blank" class="icono apple"><img
+                        src="https://cdn-cms-s.f-static.net/files/images/moovit_white_small.png?v=g84024"
+                        alt="Apple Maps"></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

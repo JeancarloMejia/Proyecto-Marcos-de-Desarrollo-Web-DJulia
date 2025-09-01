@@ -1,0 +1,75 @@
+body {
+    background: #f6f6f4;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.change-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.change-form {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px #0002;
+    padding: 36px 32px 28px 32px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.change-form h2 {
+    margin: 0 0 12px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #a9004f;
+    text-align: center;
+}
+.change-form label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.change-form input[type="password"] {
+    padding: 9px 12px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background: #fafafa;
+}
+.btn-change {
+    background: #a9004f;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+.btn-change:hover {
+    background: #222;
+}
+.btn-cancel {
+    background: #fff;
+    color: #a9004f;
+    border: 1px solid #a9004f;
+    border-radius: 7px;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background 0.2s;
+}
+.btn-cancel:hover {
+    background: #f3e6ee;
+}
+

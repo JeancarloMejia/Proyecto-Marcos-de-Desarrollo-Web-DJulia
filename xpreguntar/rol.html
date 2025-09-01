@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url('../imagenes/BannerRol.png'); /* Cambia por tu fondo */
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo */
+        z-index: 0;
+      }
+
+      h1 {
+      position: relative;
+      text-align: center;
+      margin: 50px auto 20px auto;
+      font-size: 38px;
+      color: #fff;
+      padding: 20px 30px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      z-index: 1;
+      display: table; /* O también puede ser 'block' si prefieres ancho completo */
+      }
+
+      .container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 150px);
+        gap: 100px;
+        z-index: 1;
+      }
+
+      .icon-box {
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        padding: 20px;
+        border-radius: 20px;
+        transition: transform 0.3s;
+        animation: rgbGlow 4s infinite;
+      }
+
+      .icon-box:hover {
+        transform: scale(1.1);
+      }
+
+      .icon-box img {
+        width: 200px;
+        height: 200px;
+        border-radius: 15px;
+      }
+
+      .icon-box p {
+        color: white;
+        font-size: 50px;
+        margin-top: 10px;
+        text-shadow: 0 0 10px #000;
+      }
+
+      /* Animación RGB de los iconos */
+      @keyframes rgbGlow {
+        0% { box-shadow: 0 0 15px red; }
+        25% { box-shadow: 0 0 15px orange; }
+        50% { box-shadow: 0 0 15px lime; }
+        75% { box-shadow: 0 0 15px cyan; }
+        100% { box-shadow: 0 0 15px red; }
+      }
+
+      /* Animación del texto del título */
+      @keyframes tituloRGB {
+        0% { text-shadow: 0 0 10px red; }
+        25% { text-shadow: 0 0 10px orange; }
+        50% { text-shadow: 0 0 10px lime; }
+        75% { text-shadow: 0 0 10px cyan; }
+        100% { text-shadow: 0 0 10px red; }
+      }
+  </style>
+</head>
+<body>
+  <h1>¿Cómo desea ingresar?</h1>
+  <div class="container">
+    <div class="icon-box" onclick="accederClientes()">
+      <img src="../imagenes/Cliente.png" alt="Clientes" />
+      <p>Clientes</p>
+    </div>
+
+    <div class="icon-box" onclick="accederAdmin()">
+      <img src="../imagenes/Admin.png" alt="Administrador" />
+      <p>Admin</p>
+    </div>
+  </div>
+
+  <script>
+
+    const ROL_USUARIO = "admin";
+
+    function accederClientes() {
+      window.location.href = "/PF_D_Julia/public/Cliente/prueba.html";
+    }
+
+    function accederAdmin() {
+      if (ROL_USUARIO === "admin") {
+        window.location.href = "/PF_D_Julia/public/Administrador/catalogo/catalogo.html";
+      } else {
+        alert("Acceso denegado. Solo administradores.");
+      }
+    }
+  </script>
+</body>
+</html>
